@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script language="JavaScript" type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./lib/css/styles.css">
+
+  </head>
+  
+  
+      <div id="error" class='hide' style="width: 100%;height: 25px;background: red;">
+        <h3 id="errorMsg"  style="color: white;text-align: center;"></h3>
+        </div></br>
+      </div>
+  <body >
+        <input type="hidden" id="pid">
+		<input type="hidden" id="pname">
+    <input type="hidden" id="did">
+
+
+  <div id="Screen1">
+    <button type="button" id="nextPatient" onClick="$(this).myFunction(2);" >Next</button>   &nbsp:&nbsp:&nbsp
+    <!-- <button type="button" id="previousPatient" >Previous</button> -->
+  </br>
+      <div>
+        <main class="main">
+      <div class="main-overview">
+          <div class="small-card">
+              <div>Patient First Name</div>
+              <input class="annotation-box" id="inputFname">
+            </div>
+            <div class="small-card">
+                <div>Patient Last Name</div>
+                <input class="annotation-box" id="inputLname">
+            </div>
+            <div class="small-card">
+                <div>date of birth</div>
+                <input type="date" class="annotation-box" id="inputDob">
+            </div>
+        <div class="small-card">
+            <div>Social Security Numbere</div>
+            <input class="annotation-box" id="inputSsn">
+        </div>
+    </div>
+</br>
+    <button type="button" id="searchPatient" style="height: 10%;width: 10%;float: right;">Search</button><br>
+    
+    </br>
+    <table id="tbl" style="width:100%;height: 100%;color: black;">
+        <tr>
+            <th>ID</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Gender</th>
+            <th>DOB</th>
+            <th>Address</th>
+		        <th>Select</th>
+
+        </tr>
+    </table>
+    </main>
+  </div>
+
+  </div>
+  
+  
+  
+  
+  
+<!---------------------------------------Device Starts------------------------------->
+  <div id="Screen2" style="display: none;">
+    <button type="button" id="previousDevice" onClick="$(this).myFunction(1);" >Previous</button> &nbsp:&nbsp:&nbsp
+    <button type="button" id="nextDevice"  onClick="$(this).myFunction(3);">Add Device</button>   &nbsp:&nbsp:&nbsp
+    <button type="button" id="addDeviceRequest"  onClick="$(this).myFunction(4);">Add Device Request</button>   &nbsp:&nbsp:&nbsp
+    <button type="button" id="addObservation" onClick="$(this).createObservation()">Add Observation</button>   &nbsp:&nbsp:&nbsp
+  </br>
+
+    <div>
+        <main class="main">
+</br>
+    <button onClick="$(this).searchDevice();" type="button" id="searchDevice" style="height: 10%;width: 10%;" >Reload</button>
+    </br>
+    <table id="tableDevice" style="width:100%;height: 100%;color: black;">
+        <tr>
+          <tr><th>Device ID</th><th>Patient Name</th><th>Device Name</th><th>Device Identifier</th><th>Seriab No.</th></tr>
+        </tr>
+    </table>
+    </main>
+  </div>  </div>
+  
+  
+<!---------------------------------------Create Device----------------------------------------->
+
+
+<div id="Screen3" style="display: none;">
+  <!-- <button type="button" id="nextCreateDevice"   onClick="$(this).myFunction(4);">Next</button>   &nbsp:&nbsp:&nbsp -->
+  <button type="button" id="previousCreateDevice" onClick="$(this).myFunction(2);" >Previous</button>
+</br>
+
+  <div>
+      <main class="main">
+    <div class="main-overview">
+      <div class="small-card">
+          <div>Device Name</div>
+          <input class="annotation-box" id="deviceName">
+      </div>
+      <div class="small-card">
+          <div>Distinct Identifier</div>
+          <input class="annotation-box" id="distinctIdentifier">
+      </div>
+        <div class="small-card">
+            <div>Device Type</div>
+            <input class="annotation-box" id="type">
+          </div>
+          <div class="small-card">
+            <div>Device Serial Number</div>
+            <input class="annotation-box" id="serialNumber">
+          </div>
+  </div>
+</br>
+  <button type="button" id="createDevice" onClick="$(this).createDevice()" style="height: 10%;width: 10%;">Submit</button>
+  </br>
+  </main>
+</div>  </div>
+
+
+<!---------------------------------------Create Device Request----------------------------------------->
+
+
+<div id="Screen4" style="display: none;">
+  <!-- <button type="button" id="nextCreateDeviceRequest"   >Next</button>   &nbsp:&nbsp:&nbsp -->
+  <button type="button" id="previousCreateDeviceRequest" onClick="$(this).myFunction(2);" >Previous</button>
+</br>
+
+  <div>
+      <main class="main">
+    <div class="main-overview">
+      <div class="small-card">
+          <div>Intent</div>
+    <select class="annotation-box"  name="cars" id="drintent">
+    <option value="proposal">proposal</option>
+    <option value="plan">plan</option>
+    <option value="directive">directive</option>
+    <option value="order">order</option>
+    <option value="original-order">original-order</option>
+    <option value="reflex-order">reflex-order</option>
+    <option value="directive">directive</option>
+    <option value="filler-orde">filler-order</option>
+    <option value="reflex-order">reflex-order</option>
+    <option value="instance-order">instance-order</option>
+    <option value="option">option</option>
+   </select>
+      </div>
+      <div class="small-card">
+          <div>Promise Start Date</div>
+          <input type="datetime-local" class="annotation-box" id="drstartDate" value=""></input>
+      </div>
+        <div class="small-card">
+            <div>Promise End Date</div>
+            <input type="datetime-local"  class="annotation-box" id="drendDate" value=""></input>
+          </div>
+  </div>
+</br>
+  <button type="button" id="createDeviceRequest" onClick="$(this).createDeviceRequest()" style="height: 10%;width: 10%;">Submit</button>
+  </br>
+  </main>
+</div>  </div>
+
+
+<!--------------------------------------END ---------------------------------------------------->
+  <div id="nextBtn" style="height: 10%;width: 10%;float: left;">
+    <!-- <button type="button" id="submitPatient" >Next</button> -->
+
+  </div>
+  <!-- <script src="./lib/js/custom.js"></script>  -->
+  <script src="./lib/js/custom.js"></script> 
+  <script src='./lib/js/fhir-client.js'></script>
+  <script src="./lib/js/patient.js"></script>
+  <script src="./lib/js/device.js"></script>
+  <script src="./lib/js/deviceRequest.js"></script>
+  <script src="./lib/js/observation.js"></script>
+  <script src="./lib/js/template.js"></script>
+  <script src="./lib/js/observation_template.js"></script> 
+
+  
+
+
+
+</body>
+
+</html>
